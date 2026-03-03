@@ -162,4 +162,4 @@ All configuration is done through slash commands and requires Administrator or M
 
 License
 
-MIT License
+Apache-2.0 license
