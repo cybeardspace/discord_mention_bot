@@ -1,0 +1,19 @@
+services:
+  mention-bot:
+    build: .
+    container_name: mention-bot
+    restart: unless-stopped
+
+    env_file:
+      - .env
+
+    environment:
+      - TZ=America/Chicago
+      - MENTION_BOT_CONFIG=/data/config.json
+
+    volumes:
+      # Persist config + runtime files
+      - /DATA/AppData/Mention_Bot:/data
+
+      # IMPORTANT: mount your code so edits apply immediately without rebuild
+      - /DATA/AppData/Mention_Bot/mention_policy_bot.py:/app/mention_policy_bot.py:ro
